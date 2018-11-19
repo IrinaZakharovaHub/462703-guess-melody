@@ -24,46 +24,35 @@ let app = {
   init: function () {
     this.main.appendChild(this.templates[0].content.cloneNode(true));
     this.main.innerHTML += this.buttons;
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') {
+        app.changeSlide(-1);
+      }
+      if (e.key === 'ArrowRight') {
+        app.changeSlide(1);
+      }
+    });
+    document.querySelector('.btn-prev').addEventListener('click', function () {
+      app.changeSlide(-1);
+    });
+    document.querySelector('.btn-next').addEventListener('click', function () {
+      app.changeSlide(1);
+    });
 
   },
-  next: function () {
-    if (this.currentTemplate < this.templates.length - 1) {
-      [].forEach.call(this.main.childNodes, function(elem) {
+  changeSlide: function (x) {
+    if (this.currentTemplate < this.templates.length - 1 && x > 0 || this.currentTemplate > 0 && x < 0) {
+      [...this.main.childNodes].forEach(function(elem) {
         if ( elem.tagName === 'SECTION') {
           elem.remove();
         }
       });
-      this.main.insertBefore(this.templates[this.currentTemplate + 1].content.cloneNode(true), this.main.lastElementChild);
-      this.currentTemplate += 1;
-    }
-  },
-  prev: function () {
-    if (this.currentTemplate > 0) {
-      [].forEach.call(this.main.childNodes, function(elem) {
-        if ( elem.tagName === 'SECTION') {
-          elem.remove();
-        }
-      });
-      this.main.insertBefore(this.templates[this.currentTemplate - 1].content.cloneNode(true), this.main.lastElementChild);
-      this.currentTemplate -= 1;
+      this.main.insertBefore(this.templates[this.currentTemplate + x].content.cloneNode(true), this.main.lastElementChild);
+      this.currentTemplate += x;
     }
   }
 };
 app.init();
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'ArrowLeft') {
-    app.prev();
-  }
-  if (e.key === 'ArrowRight') {
-    app.next();
-  }
-});
-document.querySelector('.btn-prev').addEventListener('click', function () {
-  app.prev();
-});
-document.querySelector('.btn-next').addEventListener('click', function () {
-  app.next();
-});
 
 
 
