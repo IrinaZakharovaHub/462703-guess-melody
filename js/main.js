@@ -1,4 +1,11 @@
-'use strict';
+import setTemplate from './actions/setTemplate';
+import welcome from './screens/welcome.js';
+
+
+
+// changeTemplate(`.welcome__button`, welcome);
+
+
 let app = {
   currentTemplate: 0,
   templates: document.querySelectorAll(`template`),
@@ -52,7 +59,10 @@ let app = {
     }
   }
 };
-app.init();
+// app.init();
+
+
+
 
 
 
