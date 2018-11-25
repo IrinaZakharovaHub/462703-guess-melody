@@ -1,8 +1,8 @@
-import setTemplate from './setTemplate.js';
+import settemplate from './settemplate.js';
 
 const changeTemplate = (button, template) => {
   document.querySelector(button).addEventListener('click', () => {
-    setTemplate(template);
+    settemplate(template);
   })
 };
 

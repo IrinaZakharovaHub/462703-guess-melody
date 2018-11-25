@@ -1,11 +1,10 @@
-import getTemplate from '../actions/getTemplate.js';
-import changeTemplate from "../actions/changeTemplate";
-import gameArtist from "./gameArtist";
-import setTemplate from "../actions/setTemplate";
-import welcome from "./welcome";
+import gettemplate from '../actions/gettemplate.js';
+import settemplate from "../actions/settemplate";
+import setwelcome from "../actions/setwelcome.js";
+import gameartist from "./gameartist";
 
 
-const gameGenre = getTemplate(`<header class="game__header">
+const gamegenre = gettemplate(`<header class="game__header">
       <a class="game__back" href="#">
         <span class="visually-hidden">Сыграть ещё раз</span>
         <img class="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию">
@@ -80,13 +79,28 @@ const gameGenre = getTemplate(`<header class="game__header">
       </form>
     </section>`, `game game--genre`);
 
-// changeTemplate(`.game__submit`, gameArtist);
-const gameSubmit = welcome.querySelector(`.game__submit`);
+setwelcome(gamegenre);
+const gameSubmit = gamegenre.querySelector(`.game__submit`);
+const gameInput = gamegenre.querySelectorAll(`.game__input`);
+let answers = [false, false, false, false];
+gameInput.forEach((el, i) => {
+  el.addEventListener(`click`, function() {
+    answers[i] = !answers[i];
+    let str = answers.join(`,`);
+    if (/true/i.test(str)) {
+      gameSubmit.removeAttribute(`disabled`);
+    }
+    else {
+      gameSubmit.setAttribute(`disabled`, `true`);
+    }
+  });
+});
+gameSubmit.setAttribute(`disabled`, `true`);
 gameSubmit.addEventListener('click', () => {
-  setTemplate(gameArtist);
+  settemplate(gameartist);
 });
 
-export default gameGenre;
+export default gamegenre;
 
 
 
