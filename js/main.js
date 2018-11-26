@@ -1,9 +1,8 @@
 import welcome from './screens/welcome.js';
-import settemplate from './actions/settemplate';
+import setTemplate from './actions/set-template';
 
 
-
-settemplate(welcome);
+setTemplate(welcome);
 
 
 

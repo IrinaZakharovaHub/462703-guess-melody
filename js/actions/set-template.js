@@ -1,10 +1,9 @@
-
 const activeScreenElement = document.querySelector(`.main`);
 
-const settemplate = (screen) => {
+const setTemplate = (screen) => {
   activeScreenElement.innerHTML = ``;
   activeScreenElement.appendChild(screen);
 };
 
 
-export default settemplate;
+export default setTemplate;

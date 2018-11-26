@@ -1,10 +1,10 @@
-import gettemplate from '../actions/gettemplate.js';
-import settemplate from "../actions/settemplate";
-import setwelcome from "../actions/setwelcome.js";
+import getTemplate from "../actions/get-template.js";
+import setTemplate from "../actions/set-template";
+import setWelcome from "../actions/set-welcome.js";
 import success from "./success";
 import fail from "./fail";
 
-const gameartist = gettemplate(`<header class="game__header">
+const gameArtist = getTemplate(`<header class="game__header">
       <a class="game__back" href="#">
         <span class="visually-hidden">Сыграть ещё раз</span>
         <img class="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию">
@@ -61,14 +61,14 @@ const gameartist = gettemplate(`<header class="game__header">
       </form>
     </section>`, `game game--artist`);
 
-setwelcome(gameartist);
-const button = gameartist.querySelectorAll(`.artist__input`);
+setWelcome(gameArtist);
+const button = gameArtist.querySelectorAll(`.artist__input`);
 button.forEach((i) => {
   i.addEventListener('click', () => {
     const generator = Math.random() > 0.5 ? success : fail;
-    settemplate(generator);
+    setTemplate(generator);
   })
 });
 
-export default gameartist;
+export default gameArtist;
 

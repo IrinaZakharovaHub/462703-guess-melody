@@ -1,9 +1,9 @@
-import gettemplate from '../actions/gettemplate.js';
-import settemplate from "../actions/settemplate";
+import getTemplate from '../actions/get-template.js';
+import setTemplate from "../actions/set-template";
 import welcome from './welcome.js';
 
 
-const success = gettemplate(`    <div class="result__logo"><img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"></div>
+const success = getTemplate(`    <div class="result__logo"><img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"></div>
     <h2 class="result__title">Вы настоящий меломан!</h2>
     <p class="result__total">За 3 минуты и 25 секунд вы набрали 12 баллов (8 быстрых), совершив 3 ошибки</p>
     <p class="result__text">Вы заняли 2 место из 10. Это лучше чем у 80% игроков</p>
@@ -11,7 +11,7 @@ const success = gettemplate(`    <div class="result__logo"><img src="img/melody-
 
 const button = success.querySelector(`.result__replay`);
 button.addEventListener('click', () => {
-  settemplate(welcome);
+  setTemplate(welcome);
 });
 
 

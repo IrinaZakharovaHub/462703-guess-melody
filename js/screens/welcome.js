@@ -1,10 +1,9 @@
+import getTemplate from '../actions/get-template.js';
+import gameGenre from "./game-genre";
+import setTemplate from "../actions/set-template";
 
-import gettemplate from '../actions/gettemplate.js';
-import gamegenre from "./gamegenre";
-import settemplate from "../actions/settemplate";
 
-
- const welcome = gettemplate(`<div class="welcome__logo"><img src="../../img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"></div>
+const welcome = getTemplate(`<div class="welcome__logo"><img src="../../img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"></div>
     <button class="welcome__button"><span class="visually-hidden">Начать игру</span></button>
     <h2 class="welcome__rules-title">Правила игры</h2>
     <p class="welcome__text">Правила просты:</p>
@@ -17,10 +16,9 @@ import settemplate from "../actions/settemplate";
 
 const welcomeButton = welcome.querySelector(`.welcome__button`);
 welcomeButton.addEventListener('click', () => {
-
-  settemplate(gamegenre);
+  setTemplate(gameGenre);
 });
 
- export default welcome;
+export default welcome;
 
 

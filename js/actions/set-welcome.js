@@ -1,13 +1,13 @@
 import welcome from '../screens/welcome.js';
-import settemplate from './settemplate';
+import setTemplate from './set-template';
 
-function setwelcome(el) {
+function setWelcome(el) {
   el.querySelector('.game__back').addEventListener(`click`, () => {
-    settemplate(welcome);
+    setTemplate(welcome);
   });
 }
 
-export default setwelcome;
+export default setWelcome;
 
 
 

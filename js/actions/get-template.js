@@ -1,4 +1,4 @@
-const gettemplate = (template, name) => {
+const getTemplate = (template, name) => {
   const element = document.createElement(`section`);
   element.className = name;
   element.innerHTML = template;
@@ -6,4 +6,4 @@ const gettemplate = (template, name) => {
 };
 
 
-export default gettemplate;
+export default getTemplate;

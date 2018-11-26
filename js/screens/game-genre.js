@@ -1,10 +1,10 @@
-import gettemplate from '../actions/gettemplate.js';
-import settemplate from "../actions/settemplate";
-import setwelcome from "../actions/setwelcome.js";
-import gameartist from "./gameartist";
+import getTemplate from '../actions/get-template.js';
+import setTemplate from "../actions/set-template";
+import setWelcome from "../actions/set-welcome.js";
+import gameArtist from "./game-artist";
 
 
-const gamegenre = gettemplate(`<header class="game__header">
+const gameGenre = getTemplate(`<header class="game__header">
       <a class="game__back" href="#">
         <span class="visually-hidden">Сыграть ещё раз</span>
         <img class="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию">
@@ -79,12 +79,12 @@ const gamegenre = gettemplate(`<header class="game__header">
       </form>
     </section>`, `game game--genre`);
 
-setwelcome(gamegenre);
-const gameSubmit = gamegenre.querySelector(`.game__submit`);
-const gameInput = gamegenre.querySelectorAll(`.game__input`);
+setWelcome(gameGenre);
+const gameSubmit = gameGenre.querySelector(`.game__submit`);
+const gameInput = gameGenre.querySelectorAll(`.game__input`);
 let answers = [false, false, false, false];
 gameInput.forEach((el, i) => {
-  el.addEventListener(`click`, function() {
+  el.addEventListener(`click`, function () {
     answers[i] = !answers[i];
     let str = answers.join(`,`);
     if (/true/i.test(str)) {
@@ -97,10 +97,10 @@ gameInput.forEach((el, i) => {
 });
 gameSubmit.setAttribute(`disabled`, `true`);
 gameSubmit.addEventListener('click', () => {
-  settemplate(gameartist);
+  setTemplate(gameArtist);
 });
 
-export default gamegenre;
+export default gameGenre;
 
 
 
