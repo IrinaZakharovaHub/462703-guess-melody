@@ -64,10 +64,10 @@ const gameArtist = getTemplate(`<header class="game__header">
 setWelcome(gameArtist);
 const button = gameArtist.querySelectorAll(`.artist__input`);
 button.forEach((i) => {
-  i.addEventListener('click', () => {
+  i.addEventListener(`click`, () => {
     const generator = Math.random() > 0.5 ? success : fail;
     setTemplate(generator);
-  })
+  });
 });
 
 export default gameArtist;

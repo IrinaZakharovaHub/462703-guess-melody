@@ -9,7 +9,7 @@ const fail = getTemplate(` <div class="result__logo"><img src="img/melody-logo.p
 
 
 const button = fail.querySelector(`.result__replay`);
-button.addEventListener('click', () => {
+button.addEventListener(`click`, () => {
   setTemplate(welcome);
 });
 

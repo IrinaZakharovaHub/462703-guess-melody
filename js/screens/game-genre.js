@@ -9,7 +9,6 @@ const gameGenre = getTemplate(`<header class="game__header">
         <span class="visually-hidden">Сыграть ещё раз</span>
         <img class="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию">
       </a>
-
       <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
         <circle class="timer__line" cx="390" cy="390" r="370"
                 style="filter: url(#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"/>
@@ -89,18 +88,15 @@ gameInput.forEach((el, i) => {
     let str = answers.join(`,`);
     if (/true/i.test(str)) {
       gameSubmit.removeAttribute(`disabled`);
-    }
-    else {
+    } else {
       gameSubmit.setAttribute(`disabled`, `true`);
     }
   });
 });
 gameSubmit.setAttribute(`disabled`, `true`);
-gameSubmit.addEventListener('click', () => {
+gameSubmit.addEventListener(`click`, () => {
   setTemplate(gameArtist);
 });
 
 export default gameGenre;
-
-
 
